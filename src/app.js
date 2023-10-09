@@ -1,31 +1,27 @@
 import Express from "express";
+import conectaNadatabase from "./config/dbConnect.js";
+import livro from "./models/Livro.js";
 
+
+const conexao = await conectaNadatabase();//Função que conecta a ./config para conexao do banco de dados 
+
+conexao.on("error",(erro)=>{
+    console.error("Erro da conexao\n ",erro)
+});
+
+conexao.once("open",()=>{
+    console.log("Conexao com o banco feita com sucesso !!!")
+})
 const app = Express();
 app.use(Express.json());//middleware:Pesquisar o que é ?
 
-//json de teste 
-const livros =[
-    {
-        id:1,
-        titulo:"O senhor dos Anéis"
-    },
-    {
-        id:2,
-        titulo:"O Hobbit"
-    }
-
-]
-function buscaLivro(id){
-    return livros.findIndex(livros =>{
-        return livros.id === Number(id);
-    })
-};
 //construindo as rotas e fazendo a conexão entre as rotas e objs mostardo no navegador 
 app.get("/",(req, res)=>{
     res.status(200).send("Curso de Node.js ")
 });
-app.get("/livros",(req,res)=>{
-    res.status(200).json(livros)
+app.get("/livros",async (req,res)=>{
+    const listaLivros = await livro.find({})
+    res.status(200).json(listaLivros)
 
 });
 //enviando dados para api 
