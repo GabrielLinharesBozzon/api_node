@@ -10,8 +10,9 @@ const livroSchema = new mongoose.Schema({//Passando o formato/modelo dos dados p
  preco:{type:Number},
  paginas:{type:Number}
 },
+
 {
-    versionKey:false//Não quero que seja verionado o mongo
+    versionKey:false//Não quero que seja versionado o mongo
 });
 
 const livro = mongoose.model("Livros", livroSchema);//Vai converte os parametros para o Schema

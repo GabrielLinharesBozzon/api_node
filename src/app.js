@@ -29,7 +29,6 @@ app.post("/livros",(req,res)=>{
     livros.push(req.body)
     res.status(201).send("Livro cadastrado com sucesso !!! ")
 });
-
 //pesquisar livros
 app.get("/livros/:id",(req,res)=>{
     const index = buscaLivro(req.params.id);
