@@ -1,3 +1,4 @@
+import"dotenv/config.js";
 import app from "./src/app.js";
 const port = 80
 
