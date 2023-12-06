@@ -20,12 +20,6 @@ app.use(Express.json());//middleware:Pesquisar o que é ?
 app.get("/",(req, res)=>{
     res.status(200).send("Curso de Node.js ")
 });
-//split das tabelas 
-app.get("/livros",async (req,res)=>{
-    const listaLivros = await livro.find({});
-    res.status(200).json(listaLivros)
-
-});
 //enviando dados para api 
 app.post("/livros",(req,res)=>{
     livro.push(req.body)
