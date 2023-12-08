@@ -1,7 +1,6 @@
 import Express from "express";
 import conectaNadatabase from "./config/dbConnect.js";
-import livro from "./models/Livro.js";
-
+import routes from "./routes/index.js";
 
 const conexao = await conectaNadatabase();//Função que conecta a ./config para conexao do banco de dados 
 
