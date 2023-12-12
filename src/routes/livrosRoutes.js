@@ -5,3 +5,5 @@ const routes = express.Router()
 routes.get("/livros",LivroController.ListarLivros)
 routes.post("/livros",LivroController.cadastro)
 
+export default routes;
+

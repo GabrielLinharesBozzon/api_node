@@ -13,12 +13,7 @@ conexao.once("open",()=>{
 })
 
 const app = Express();
-app.use(Express.json());//middleware:Pesquisar o que é ?
-
-//construindo as rotas e fazendo a conexão entre as rotas e objs mostardo no navegador 
-app.get("/",(req, res)=>{
-    res.status(200).send("Curso de Node.js ")
-});
+routes(app);
 //enviando dados para api 
 app.post("/livros",(req,res)=>{
     livro.push(req.body)
