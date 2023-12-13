@@ -36,13 +36,23 @@ class LivroController{
     static async atualizarLivro(req,res){
         try {
             const id = req.params.id;
-            const livroencontrado = await livro.findById(id);
-            res.status(200).json(livroencontrado)
+            await livro.findByIdAndUpdate(id, req.body);
+            res.status(200).json({message:"LIvro atualizado",body});
         }catch(erro){
-            res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO DO LIVRO`})
+            res.status(500).json({message:`${erro.message}- FALHA NA ATUALIZAÇÃO`})
         }
-};
+    };
 
+    static async deletar(req, res){
+        try {
+            const id = req.params.id;
+            await livro.findByIdAndDelete(id);
+            res.status(204).json({message:"Livro deletado"})
+        } catch (error) {
+            res.status(500).json({message:`${erro.message}- FALHA NA HORA DE DELETAR`});
+            
+        }
+    }
 };
 
 export default LivroController;
