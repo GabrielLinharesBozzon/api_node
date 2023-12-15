@@ -1,0 +1,3 @@
+1-Criar um script para criar um docker de um mongo db
+2-Criar o acesso do banco de dados 
+3-Fazer o acesso remoto nesse banco 
