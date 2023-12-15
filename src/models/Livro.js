@@ -17,4 +17,4 @@ const livroSchema = new mongoose.Schema({//Passando o formato/modelo dos dados p
 
 const livro = mongoose.model("Livros", livroSchema);//Vai converte os parametros para o Schema
 
-export default livro
+export default livro;

@@ -42,8 +42,7 @@ class LivroController{
             res.status(500).json({message:`${erro.message}- FALHA NA ATUALIZAÇÃO`})
         }
     };
-
-    static async deletar(req, res){
+static async deletar(req, res){
         try {
             const id = req.params.id;
             await livro.findByIdAndDelete(id);
@@ -52,7 +51,7 @@ class LivroController{
             res.status(500).json({message:`${erro.message}- FALHA NA HORA DE DELETAR`});
             
         }
-    }
+    };
 };
 
 export default LivroController;
