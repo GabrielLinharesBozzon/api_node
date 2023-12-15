@@ -4,6 +4,7 @@ import livro from "../models/Livro.js";
 class LivroController{
 
     static async ListarLivros(req,res){
+<<<<<<< Updated upstream
         try {
             const listaLivros = await livro.find({});
             res.status(200).json(listaLivros)
@@ -21,14 +22,23 @@ class LivroController{
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO DO LIVRO`})
         }
         
+=======
+        const listaLivros = await livro.find({});
+        res.status(200).json(listaLivros)
+>>>>>>> Stashed changes
     };
     static async cadastro(req,res){
         
         try{
             const novoLivro = await livro.create(req.body);
+<<<<<<< Updated upstream
             res.status(201).json({message:"Criado com sucesso ",
             livro: novoLivro  }).send("Livro cadastrado")
         }catch(erro){
+=======
+            res.status(201).json({message:"Criado com sucesso ", livro: novoLivro}).send("Livro cadastrado")
+        }catch(Erro){
+>>>>>>> Stashed changes
             res.status(500).json({message:`${Erro.message}- Falha ao cadastrar livro`})
         }
         
