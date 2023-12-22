@@ -1,18 +1,17 @@
 // Controle de Cruds
-import livro from "../models/Livro.js";
+import {autor} from "../models/autor.js"
 
-class LivroController{
+class autorController{
 
-    static async ListarLivros(req,res){
-        try {
+    static async ListarAutores(req,res){
             const listaLivros = await livro.find({});
             res.status(200).json(listaLivros)
         }catch(erro){
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO`})
         }
         
-    };
-    static async ListarLivrosPorId(req,res){
+ 
+    static async ListarAutoresPorId(req,res){
         try {
             const id = req.params.id;
             const livroencontrado = await livro.findById(id);
@@ -22,7 +21,7 @@ class LivroController{
         }
         
     };
-    static async cadastro(req,res){
+    static async cadastroAutores(req,res){
         
         try{
             const novoLivro = await livro.create(req.body);
@@ -33,7 +32,7 @@ class LivroController{
         }
         
     };
-    static async atualizarLivro(req,res){
+    static async atualizarAutores(req,res){
         try {
             const id = req.params.id;
             await livro.findByIdAndUpdate(id, req.body);
@@ -42,7 +41,7 @@ class LivroController{
             res.status(500).json({message:`${erro.message}- FALHA NA ATUALIZAÇÃO`})
         }
     };
-static async deletar(req, res){
+static async deletarAutores(req, res){
         try {
             const id = req.params.id;
             await livro.findByIdAndDelete(id);
@@ -52,6 +51,6 @@ static async deletar(req, res){
             
         }
     };
-};
 
-export default LivroController;
+};
+export default autorController;
