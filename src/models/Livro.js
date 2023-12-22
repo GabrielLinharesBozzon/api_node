@@ -1,6 +1,7 @@
 //Passando através do node os parametros de armazenamento para o banco de dados 
 
 import mongoose from "mongoose";//Fazendo o import do mongoose
+import{autorSchema}from"./autor.js"
 
 
 const livroSchema = new mongoose.Schema({//Passando o formato/modelo dos dados para o envio da base 
@@ -8,7 +9,8 @@ const livroSchema = new mongoose.Schema({//Passando o formato/modelo dos dados p
  titulos:{type:String, required:true},
  editora: {type:String },
  preco:{type:Number},
- paginas:{type:Number}
+ paginas:{type:Number},
+ autor:{autorSchema}
 },
 
 {
