@@ -1,6 +1,6 @@
-import express from "express"
-import livro from "../models/Livro.js"
-import autores from "../controllers/autorController.js";
+import express from "express";
+import livro from "../routes/livrosRoutes.js";
+import autores from "../routes/autorRoutes.js";
 
 const routes = (app) =>{
 
