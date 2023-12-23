@@ -1,16 +1,16 @@
-// Controle de Cruds
+// Controle do Cruds
 import {autor} from "../models/autor.js"
 
 class autorController{
 
     static async ListarAutores(req,res){
-            const listaLivros = await autor.find({});
-            res.status(200).json(listaLivros)
+        try{
+            const listaAutor = await autor.find({});
+            res.status(200).json(listaAutor)
         }catch(erro){
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO`})
-        }
-        
- 
+        };        
+    };
     static async ListarAutoresPorId(req,res){
         try {
             const id = req.params.id;
@@ -24,11 +24,11 @@ class autorController{
     static async cadastroAutores(req,res){
         
         try{
-            const novoLivro = await livro.create(req.body);
+            const novoAutor = await autor.create(req.body);
             res.status(201).json({message:"Criado com sucesso ",
-            livro: novoLivro  }).send("Livro cadastrado")
+            livro: novoAutor }).send("Livro cadastrado")
         }catch(erro){
-            res.status(500).json({message:`${Erro.message}- Falha ao cadastrar livro`})
+            res.status(500).json({message:`${erro.message}- Falha ao cadastrar livro`})
         }
         
     };
@@ -41,7 +41,7 @@ class autorController{
             res.status(500).json({message:`${erro.message}- FALHA NA ATUALIZAÇÃO`})
         }
     };
-static async deletarAutores(req, res){
+    static async deletarAutores(req, res){
         try {
             const id = req.params.id;
             await livro.findByIdAndDelete(id);
