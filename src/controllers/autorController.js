@@ -4,7 +4,7 @@ import {autor} from "../models/autor.js"
 class autorController{
 
     static async ListarAutores(req,res){
-            const listaLivros = await livro.find({});
+            const listaLivros = await autor.find({});
             res.status(200).json(listaLivros)
         }catch(erro){
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO`})
@@ -14,7 +14,7 @@ class autorController{
     static async ListarAutoresPorId(req,res){
         try {
             const id = req.params.id;
-            const livroencontrado = await livro.findById(id);
+            const livroencontrado = await autor.findById(id);
             res.status(200).json(livroencontrado)
         }catch(erro){
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO DO LIVRO`})

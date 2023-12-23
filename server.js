@@ -1,6 +1,6 @@
 import"dotenv/config.js";
 import app from "./src/app.js";
-const port = 8080
+const port = 80
 
 
 const rotas ={

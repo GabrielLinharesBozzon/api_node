@@ -28,7 +28,7 @@ class LivroController{
             res.status(201).json({message:"Criado com sucesso ",
             livro: novoLivro  }).send("Livro cadastrado")
         }catch(erro){
-            res.status(500).json({message:`${Erro.message}- Falha ao cadastrar livro`})
+            res.status(500).json({message:`${erro.message}- Falha ao cadastrar livro`})
         }
         
     };
