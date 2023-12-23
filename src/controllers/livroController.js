@@ -20,7 +20,6 @@ class LivroController{
         }catch(erro){
             res.status(500).json({message:`${erro.message}- FALHA NA REQUISIÇÃO DO LIVRO`})
         }
-        
     };
     static async cadastro(req,res){
         
