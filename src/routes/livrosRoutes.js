@@ -8,5 +8,3 @@ routes.put("/livros/:id",LivroController.atualizarLivro);
 routes.delete("/livros/:id",LivroController.deletar);  
 /*--*/ 
 export default routes;
-
-

@@ -5,5 +5,3 @@ const port = 80
 app.listen(port,()=>{
     console.log("Servidor na porta :",port)
 })
-
- 
