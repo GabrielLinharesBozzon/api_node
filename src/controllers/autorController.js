@@ -21,17 +21,19 @@ class autorController{
         }
         
     };
-    static async cadastroAutores(req,res){
-        
-        try{
+    static async cadastroAutores(req, res) {
+        try {
             const novoAutor = await autor.create(req.body);
-            res.status(201).json({message:"Criado com sucesso ",
-            livro: novoAutor }).send("Livro cadastrado")
-        }catch(erro){
-            res.status(500).json({message:`${erro.message}- Falha ao cadastrar livro`})
+            res.status(201).json({
+                message: "Criado com sucesso ",
+                livro: novoAutor
+            });
+        } catch (erro) {
+            res.status(500).json({
+                message: `${erro.message}- Falha ao cadastrar livro`
+            });
         }
-        
-    };
+    }
     static async atualizarAutores(req,res){
         try {
             const id = req.params.id;
